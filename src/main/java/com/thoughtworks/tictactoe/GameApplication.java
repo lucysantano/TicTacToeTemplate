@@ -23,9 +23,10 @@ public class GameApplication {
                 "   |   |   \n" +
                 "-----------\n" +
                 "   |   |   ");
+        int[] board = {0,0,0,0,0,0,0,0,0};
         playerOne.createPlayer();
         playerTwo.createPlayer();
-        playerOne.startTurn();
-        playerTwo.startTurn();
+        playerOne.startTurn(board);
+        playerTwo.startTurn(board);
     }
 }

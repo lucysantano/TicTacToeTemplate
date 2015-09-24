@@ -19,9 +19,9 @@ public class Player {
     public void createPlayer() {
     }
 
-    public void startTurn() {
+    public void startTurn(int[] previousBoard) {
         String position = playerTurn.promptSelection();
-        ticTacToeBoard.updateBoard(position, playerSymbol);
+        ticTacToeBoard.updateBoard(position, playerSymbol, previousBoard);
     }
 
     public int totalNumberOfPositions() {

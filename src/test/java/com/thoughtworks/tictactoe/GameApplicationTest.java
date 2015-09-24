@@ -19,6 +19,7 @@ public class GameApplicationTest {
     private Player playerOne;
     private Player playerTwo;
     private GameApplication game;
+    private int[] board ={0,0,0,0,0,0,0,0,0};
 
 
 
@@ -56,13 +57,13 @@ public class GameApplicationTest {
     @Test
     public void shouldStartPlayerOnesTurnWhenGameStarts(){
         game.start();
-        verify(playerOne).startTurn();
+        verify(playerOne).startTurn(board);
     }
 
     @Test
     public void shouldStartPlayerTwosTurnWhenGameStarts(){
         game.start();
-        verify(playerTwo).startTurn();
+        verify(playerTwo).startTurn(board);
     }
 }
 

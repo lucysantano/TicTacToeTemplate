@@ -5,7 +5,6 @@ import org.junit.Test;
 
 import java.io.PrintStream;
 
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -16,6 +15,7 @@ public class TicTacToeBoardTest {
 
     private PrintStream printStream;
     private TicTacToeBoard ticTacToeBoard;
+    private int[] previousBoard = {0,0,0,0,0,0,0,0,0};
 
     @Before
     public void setUp(){
@@ -28,7 +28,7 @@ public class TicTacToeBoardTest {
     @Test
     public void shouldPlaceXInPositionOneWhenInputIsOne(){
 
-        ticTacToeBoard.updateBoard("1","X");
+        ticTacToeBoard.updateBoard("1","X", previousBoard);
         verify(printStream).println(" X |   |   \n" +
                 "-----------\n" +
                 "   |   |   \n" +
@@ -40,7 +40,7 @@ public class TicTacToeBoardTest {
     @Test
     public void shouldPlaceXInPositionNineWhenInputIsNine(){
 
-        ticTacToeBoard.updateBoard("9","X");
+        ticTacToeBoard.updateBoard("9","X", previousBoard);
         verify(printStream).println("   |   |   \n" +
                 "-----------\n" +
                 "   |   |   \n" +
@@ -50,10 +50,23 @@ public class TicTacToeBoardTest {
     }
 
     @Test
-    public void shouldPlaceOInPositionOneWhenInputIsOne(){
+     public void shouldPlaceOInPositionOneWhenInputIsOne(){
 
-        ticTacToeBoard.updateBoard("1","O");
+        ticTacToeBoard.updateBoard("1","O", previousBoard);
         verify(printStream).println(" O |   |   \n" +
+                "-----------\n" +
+                "   |   |   \n" +
+                "-----------\n" +
+                "   |   |   ");
+
+    }
+
+    @Test
+    public void shouldAddPositionSymbolWhenAnotherSymbolIsAlreadyOnBoard(){
+
+        int[] newBoard = ticTacToeBoard.updateBoard("1","X",previousBoard);
+        ticTacToeBoard.updateBoard("2","O",newBoard);
+        verify(printStream).println(" X | O |   \n" +
                 "-----------\n" +
                 "   |   |   \n" +
                 "-----------\n" +

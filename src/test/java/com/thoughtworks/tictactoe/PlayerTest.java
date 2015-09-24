@@ -21,6 +21,7 @@ public class PlayerTest {
     private PrintStream printStream;
     private TicTacToeBoard ticTacToeBoard;
     private String playerSymbol;
+    private int[] board;
 
     @Before
     public void setUp(){
@@ -37,15 +38,15 @@ public class PlayerTest {
 
     @Test
     public void shouldPromptUserWhenPlayersTurnStarts(){
-        player.startTurn();
+        player.startTurn(board);
         verify(playerTurn).promptSelection();
     }
 
     @Test
     public void shouldPlaceXInPositionOneWhenInputIsPositionOne(){
         when(playerTurn.promptSelection()).thenReturn("1");
-        player.startTurn();
-        verify(ticTacToeBoard).updateBoard("1", playerSymbol);
+        player.startTurn(board);
+        verify(ticTacToeBoard).updateBoard("1", playerSymbol, board);
     }
 
 
