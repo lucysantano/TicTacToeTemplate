@@ -58,5 +58,11 @@ public class GameApplicationTest {
         game.start();
         verify(playerOne).startTurn();
     }
+
+    @Test
+    public void shouldStartPlayerTwosTurnWhenGameStarts(){
+        game.start();
+        verify(playerTwo).startTurn();
+    }
 }
 

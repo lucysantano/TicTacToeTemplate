@@ -7,8 +7,8 @@ public class Main {
     public static void main(String[] args) {
         TicTacToeBoard ticTacToeBoard = new TicTacToeBoard(System.out);
         PlayerTurn playerTurn = new PlayerTurn(System.out, new BufferedReader(new InputStreamReader(System.in)));
-        Player playerOne = new Player(playerTurn, ticTacToeBoard);
-        Player playerTwo = new Player(playerTurn, ticTacToeBoard);
+        Player playerOne = new Player(playerTurn, ticTacToeBoard, "X");
+        Player playerTwo = new Player(playerTurn, ticTacToeBoard, "O");
         GameApplication game = new GameApplication(System.out, playerOne, playerTwo);
         game.start();
 

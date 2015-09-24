@@ -13,13 +13,13 @@ public class TicTacToeBoard {
         this.printStream = printStream;
     }
 
-    public void updateBoard(String symbolPosition) {
+    public void updateBoard(String symbolPosition, String playerSymbol) {
         int currentPosition = 1;
         String board = "";
         for(int i=0; i<3; i++){
             for(int j=0; j<3; j++){
                 if(currentPosition == Integer.parseInt(symbolPosition)){
-                    board+=" X ";
+                    board+=" "+playerSymbol+" ";
                 }
                 else{
                     board+="   ";

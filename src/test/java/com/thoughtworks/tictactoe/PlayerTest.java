@@ -20,13 +20,14 @@ public class PlayerTest {
     private PlayerTurn playerTurn;
     private PrintStream printStream;
     private TicTacToeBoard ticTacToeBoard;
+    private String playerSymbol;
 
     @Before
     public void setUp(){
         printStream = mock(PrintStream.class);
         playerTurn = mock(PlayerTurn.class);
         ticTacToeBoard = mock(TicTacToeBoard.class);
-        player = new Player(playerTurn, ticTacToeBoard);
+        player = new Player(playerTurn, ticTacToeBoard, playerSymbol);
     }
     @Test
     public void shouldHavePlayerWithZeroPositionsWhenPlayerIsCreated(){
@@ -44,7 +45,7 @@ public class PlayerTest {
     public void shouldPlaceXInPositionOneWhenInputIsPositionOne(){
         when(playerTurn.promptSelection()).thenReturn("1");
         player.startTurn();
-        verify(ticTacToeBoard).updateBoard("1");
+        verify(ticTacToeBoard).updateBoard("1", playerSymbol);
     }
 
 

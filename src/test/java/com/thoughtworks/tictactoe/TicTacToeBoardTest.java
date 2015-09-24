@@ -28,7 +28,7 @@ public class TicTacToeBoardTest {
     @Test
     public void shouldPlaceXInPositionOneWhenInputIsOne(){
 
-        ticTacToeBoard.updateBoard("1");
+        ticTacToeBoard.updateBoard("1","X");
         verify(printStream).println(" X |   |   \n" +
                 "-----------\n" +
                 "   |   |   \n" +
@@ -40,12 +40,24 @@ public class TicTacToeBoardTest {
     @Test
     public void shouldPlaceXInPositionNineWhenInputIsNine(){
 
-        ticTacToeBoard.updateBoard("9");
+        ticTacToeBoard.updateBoard("9","X");
         verify(printStream).println("   |   |   \n" +
                 "-----------\n" +
                 "   |   |   \n" +
                 "-----------\n" +
                 "   |   | X ");
+
+    }
+
+    @Test
+    public void shouldPlaceOInPositionOneWhenInputIsOne(){
+
+        ticTacToeBoard.updateBoard("1","O");
+        verify(printStream).println(" O |   |   \n" +
+                "-----------\n" +
+                "   |   |   \n" +
+                "-----------\n" +
+                "   |   |   ");
 
     }
 }

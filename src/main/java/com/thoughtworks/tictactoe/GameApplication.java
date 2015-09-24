@@ -26,5 +26,6 @@ public class GameApplication {
         playerOne.createPlayer();
         playerTwo.createPlayer();
         playerOne.startTurn();
+        playerTwo.startTurn();
     }
 }
