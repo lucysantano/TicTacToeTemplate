@@ -1,5 +1,6 @@
 package com.thoughtworks.tictactoe;
 
+import java.io.BufferedReader;
 import java.io.PrintStream;
 
 /**
@@ -8,12 +9,20 @@ import java.io.PrintStream;
 public class GameApplication {
     private PrintStream printStream;
 
-    public GameApplication(PrintStream printStream) {
+    public GameApplication(PrintStream printStream, BufferedReader reader) {
         this.printStream = printStream;
     }
 
-    public void viewBoard() {
-        printStream.println("   |   |   ");
+    public void start() {
+        printStream.println("   |   |   \n" +
+                            "-----------\n" +
+                            "   |   |   \n" +
+                            "-----------\n" +
+                            "   |   |   ");
 
+    }
+
+    public void playerTurn() {
+        printStream.println("Please enter a position number between 1 and 9:");
     }
 }
