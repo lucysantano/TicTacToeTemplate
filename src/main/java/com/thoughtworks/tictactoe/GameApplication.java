@@ -8,21 +8,23 @@ import java.io.PrintStream;
  */
 public class GameApplication {
     private PrintStream printStream;
+    private Player playerOne;
+    private Player playerTwo;
 
-    public GameApplication(PrintStream printStream, BufferedReader reader) {
+    public GameApplication(PrintStream printStream, Player playerOne, Player playerTwo) {
         this.printStream = printStream;
+        this.playerOne = playerOne;
+        this.playerTwo = playerTwo;
     }
 
     public void start() {
         printStream.println("   |   |   \n" +
-                            "-----------\n" +
-                            "   |   |   \n" +
-                            "-----------\n" +
-                            "   |   |   ");
-
-    }
-
-    public void playerTurn() {
-        printStream.println("Please enter a position number between 1 and 9:");
+                "-----------\n" +
+                "   |   |   \n" +
+                "-----------\n" +
+                "   |   |   ");
+        playerOne.createPlayer();
+        playerTwo.createPlayer();
+        playerOne.startTurn();
     }
 }
